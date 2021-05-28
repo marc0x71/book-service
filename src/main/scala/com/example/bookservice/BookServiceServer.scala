@@ -15,7 +15,7 @@ object BookServiceServer {
 
     val httpApp = BookServiceRoutes.helloWorldRoutes[F](helloWorldAlg).orNotFound
 
-    val finalHttpApp = Logger.httpApp(logHeaders = false, logBody = true)(httpApp)
+    val finalHttpApp = Logger.httpApp(logHeaders = false, logBody = false)(httpApp)
 
     BlazeServerBuilder[F](global)
       .bindHttp(8080, "0.0.0.0")
