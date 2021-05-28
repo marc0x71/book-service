@@ -1,5 +1,5 @@
 val Http4sVersion = "0.21.24"
-val CirceVersion = "0.13.0"
+val CirceVersion = "0.14.0"
 val MunitVersion = "0.7.20"
 val LogbackVersion = "1.2.3"
 val MunitCatsEffectVersion = "0.13.0"
