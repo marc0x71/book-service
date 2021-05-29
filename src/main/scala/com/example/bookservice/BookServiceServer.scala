@@ -11,9 +11,9 @@ import scala.concurrent.ExecutionContext.global
 object BookServiceServer {
 
   def stream[F[_] : ConcurrentEffect](implicit T: Timer[F]): Stream[F, Nothing] = {
-    val helloWorldAlg = BookStore.impl[F]
+    val bookStoreAlg = BookStore.impl[F]
 
-    val httpApp = BookServiceRoutes.bookStoreRoutes[F](helloWorldAlg).orNotFound
+    val httpApp = BookServiceRoutes.bookStoreRoutes[F](bookStoreAlg).orNotFound
 
     val finalHttpApp = Logger.httpApp(logHeaders = false, logBody = false)(httpApp)
 
